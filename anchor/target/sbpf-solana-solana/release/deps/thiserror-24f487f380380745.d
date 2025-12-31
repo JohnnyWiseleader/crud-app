@@ -1,0 +1,11 @@
+/home/azureuser/bootcamp/crud-app/anchor/target/sbpf-solana-solana/release/deps/libthiserror-24f487f380380745.rmeta: /home/azureuser/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/lib.rs /home/azureuser/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/aserror.rs /home/azureuser/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/display.rs /home/azureuser/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/provide.rs /home/azureuser/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/var.rs
+
+/home/azureuser/bootcamp/crud-app/anchor/target/sbpf-solana-solana/release/deps/libthiserror-24f487f380380745.rlib: /home/azureuser/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/lib.rs /home/azureuser/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/aserror.rs /home/azureuser/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/display.rs /home/azureuser/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/provide.rs /home/azureuser/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/var.rs
+
+/home/azureuser/bootcamp/crud-app/anchor/target/sbpf-solana-solana/release/deps/thiserror-24f487f380380745.d: /home/azureuser/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/lib.rs /home/azureuser/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/aserror.rs /home/azureuser/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/display.rs /home/azureuser/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/provide.rs /home/azureuser/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/var.rs
+
+/home/azureuser/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/lib.rs:
+/home/azureuser/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/aserror.rs:
+/home/azureuser/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/display.rs:
+/home/azureuser/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/provide.rs:
+/home/azureuser/.cargo/registry/src/index.crates.io-6f17d22bba15001f/thiserror-2.0.12/src/var.rs:

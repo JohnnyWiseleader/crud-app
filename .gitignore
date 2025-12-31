@@ -42,6 +42,9 @@ next-env.d.ts
 
 # Anchor
 /anchor/.anchor
+/anchor/target/
+/anchor/target/idl/
+/anchor/target/types/
 /anchor/target/debug
 /anchor/target/deploy
 /anchor/target/release

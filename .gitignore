@@ -41,6 +41,8 @@ yarn-error.log*
 next-env.d.ts
 
 # Anchor
+# Anchor legacy JS client output
+/anchor/src/client/
 /anchor/.anchor
 /anchor/target/
 /anchor/target/idl/
@@ -51,5 +53,6 @@ next-env.d.ts
 /anchor/target/sbf-solana-solana
 /anchor/target/test-ledger
 /anchor/target/.rustc_info.json
+/clients/js/src/generated
 test-ledger
 **/*.rs.bk

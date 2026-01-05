@@ -1,12 +1,24 @@
+'use client'
+
+import { useEffect } from 'react'
 import { useSolana } from '@/components/solana/use-solana'
 import { WalletDropdown } from '@/components/wallet-dropdown'
 import { AppHero } from '@/components/app-hero'
-import { CrudappUiProgramExplorerLink } from './ui/crudapp-ui-program-explorer-link'
 import { CrudappUiCreate } from './ui/crudapp-ui-create'
-import { CrudappUiProgram } from '@/features/crudapp/ui/crudapp-ui-program'
 
 export default function CrudappFeature() {
-  const { account } = useSolana()
+  const sol = useSolana()
+  const { account } = sol
+
+  useEffect(() => {
+    console.log('useSolana()', sol)
+    console.log('account', account)
+    console.log('account.address', account?.address)
+    console.log('connected', sol.connected)
+    console.log('cluster', sol.cluster)
+    console.log('wallet', sol.wallet)
+    console.log('wallets', sol.wallets)
+  }, [account, sol])
 
   if (!account) {
     return (
@@ -21,14 +33,8 @@ export default function CrudappFeature() {
   }
 
   return (
-    <div>
-      <AppHero title="Crudapp" subtitle={'Run the program by clicking the "Run program" button.'}>
-        <p className="mb-6">
-          <CrudappUiProgramExplorerLink />
-        </p>
-        <CrudappUiCreate account={account} />
-      </AppHero>
-      <CrudappUiProgram />
-    </div>
+    <AppHero title="Crudapp" subtitle={'Run the program by clicking the "Run program" button.'}>
+      <CrudappUiCreate />
+    </AppHero>
   )
 }

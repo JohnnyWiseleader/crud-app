@@ -1,78 +1,82 @@
-// src/features/crudapp/data-access/crud-data-access.ts
-import * as anchor from "@coral-xyz/anchor";
-import { PublicKey, SystemProgram } from "@solana/web3.js";
-import type { AnchorWallet } from "@solana/wallet-adapter-react";
-import idl from "@/idl/crud_app.json";
+import * as anchor from '@coral-xyz/anchor'
+import { Connection, PublicKey, SystemProgram } from '@solana/web3.js'
+import idl from '@/idl/crud_app.json'
 
-const PROGRAM_ID = new PublicKey((idl as any).address);
+// Program id from your IDL (Codama / create-solana-dapp style)
+export const PROGRAM_ID = new PublicKey((idl as any).address)
 
-function getProgram(connection: anchor.web3.Connection, wallet: AnchorWallet) {
-  const provider = new anchor.AnchorProvider(connection, wallet, {
-    commitment: "confirmed",
-  });
+// We only need an Anchor Provider so Anchor can build the tx via .transaction().
+// For building transactions, we can pass a "dummy" wallet object.
+function getProgram(connection: Connection) {
+  const dummyWallet = {} as any
+  const provider = new anchor.AnchorProvider(connection as any, dummyWallet, {
+    commitment: 'confirmed',
+  })
 
-  return new anchor.Program(idl as anchor.Idl, provider);
+  return new anchor.Program(idl as anchor.Idl, provider)
 }
 
-function journalEntryPda(title: string, owner: PublicKey) {
+/**
+ * PDA for a journal entry.
+ * IMPORTANT: must match on-chain seeds exactly.
+ */
+export function journalEntryPda(title: string, owner: PublicKey) {
   return PublicKey.findProgramAddressSync(
-    [Buffer.from(title, "utf8"), owner.toBuffer()],
+    [Buffer.from(title, 'utf8'), owner.toBuffer()],
     PROGRAM_ID
-  )[0];
+  )
 }
 
 export async function createJournalEntryTx(params: {
-  connection: anchor.web3.Connection;
-  wallet: AnchorWallet;
-  title: string;
-  message: string;
+  connection: Connection
+  owner: PublicKey
+  title: string
+  message: string
 }) {
-  const program = getProgram(params.connection, params.wallet);
-  const pda = journalEntryPda(params.title, params.wallet.publicKey);
+  const program = getProgram(params.connection)
+  const [pda] = journalEntryPda(params.title, params.owner)
 
   return program.methods
     .createJournalEntry(params.title, params.message)
     .accounts({
       journalEntry: pda,
-      owner: params.wallet.publicKey,
+      owner: params.owner,
       systemProgram: SystemProgram.programId,
     })
-    .transaction();
+    .transaction()
 }
 
 export async function updateJournalEntryTx(params: {
-  connection: anchor.web3.Connection;
-  wallet: AnchorWallet;
-  title: string;
-  message: string;
+  connection: Connection
+  owner: PublicKey
+  title: string
+  message: string
 }) {
-  const program = getProgram(params.connection, params.wallet);
-  const pda = journalEntryPda(params.title, params.wallet.publicKey);
+  const program = getProgram(params.connection)
+  const [pda] = journalEntryPda(params.title, params.owner)
 
   return program.methods
     .updateJournalEntry(params.title, params.message)
     .accounts({
       journalEntry: pda,
-      owner: params.wallet.publicKey,
-      systemProgram: SystemProgram.programId,
+      owner: params.owner,
     })
-    .transaction();
+    .transaction()
 }
 
 export async function deleteJournalEntryTx(params: {
-  connection: anchor.web3.Connection;
-  wallet: AnchorWallet;
-  title: string;
+  connection: Connection
+  owner: PublicKey
+  title: string
 }) {
-  const program = getProgram(params.connection, params.wallet);
-  const pda = journalEntryPda(params.title, params.wallet.publicKey);
+  const program = getProgram(params.connection)
+  const [pda] = journalEntryPda(params.title, params.owner)
 
   return program.methods
     .deleteJournalEntry(params.title)
     .accounts({
       journalEntry: pda,
-      owner: params.wallet.publicKey,
-      systemProgram: SystemProgram.programId,
+      owner: params.owner,
     })
-    .transaction();
+    .transaction()
 }

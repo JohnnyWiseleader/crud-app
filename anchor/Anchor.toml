@@ -7,7 +7,10 @@ resolution = true
 skip-lint = false
 
 [programs.localnet]
-crudapp = "Ewj4A5kLpcoe3Y8DrrohWuCFgtfkFG6F7D7cr3viweXY"
+crud_app = "Ewj4A5kLpcoe3Y8DrrohWuCFgtfkFG6F7D7cr3viweXY"
+
+[programs.devnet]
+crud_app = "Ewj4A5kLpcoe3Y8DrrohWuCFgtfkFG6F7D7cr3viweXY"
 
 [registry]
 url = "https://api.apr.dev"
@@ -17,4 +20,4 @@ cluster = "devnet"
 wallet = "~/.config/solana/id.json"
 
 [scripts]
-test = "vitest"
+test = "echo 'No JS tests configured yet'"

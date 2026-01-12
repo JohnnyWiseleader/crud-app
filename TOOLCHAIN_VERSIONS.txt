@@ -1,0 +1,6 @@
+anchor: anchor-cli 0.31.1
+solana: solana-cli 2.1.0 (src:c1080de4; feat:3176011155, client:Agave)
+rustc: rustc 1.92.0 (ded5c06cf 2025-12-08)
+cargo: cargo 1.92.0 (344c4567c 2025-10-21)
+node: v24.10.0
+npm: 11.6.1

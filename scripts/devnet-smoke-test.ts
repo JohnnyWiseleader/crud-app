@@ -24,9 +24,9 @@ async function main() {
   anchor.setProvider(provider);
 
   // Build Anchor program from generated IDL (ESM-safe)
-const idlPath = path.resolve("anchor/target/idl/crud_app.json");
-const idl = JSON.parse(fs.readFileSync(idlPath, "utf8")) as anchor.Idl;
-const program = new anchor.Program(idl, provider);
+  const idlPath = path.resolve("anchor/target/idl/crud_app.json");
+  const idl = JSON.parse(fs.readFileSync(idlPath, "utf8")) as anchor.Idl;
+  const program = new anchor.Program(idl, provider);
 
   const title = `backend_${Date.now()}`;
   const message = "Hello from backend smoke test";
